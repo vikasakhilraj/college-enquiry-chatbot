@@ -1,0 +1,113 @@
+Objective:
+
+The objective of this project is to build an intelligent chatbot for answering college-related questions.
+It aims to automate responses for common inquiries like admissions, fees, courses, and scholarships.
+
+Aim:
+To develop a chatbot that helps prospective or current students get accurate and human-like responses for frequently asked college questions related to:
+•	Admissions
+•	Courses 
+•	Fees and scholarships
+•	Hostel facilities
+•	Placements and internships
+•	College infrastructure and facility
+
+ Dataset Description (Related Data)
+
+
+
+
+
+
+
+Models Used:
+
+1. Sentence Transformer (all miniLm-l6-v2)
+Sentence Encoding:
+ It converts a sentence into a vector (embedding) that captures its meaning.
+
+Semantic Understanding:
+ Understands the context and meaning of a sentence, 
+ how close two sentences are in meaning, even if they don’t use the same     words.
+
+Maintains Accuracy:
+ MiniLM delivers competitive accuracy on many NLP tasks.
+
+
+Flan-T5 
+Generates human-like answers :
+  when the user’s question doesn't closely match any FAQ.
+
+Text Generation:
+Generates relevant replies by understanding the meaning of the question.
+
+Instruction Following:
+Responds based on specific prompts like “Answer like a helpful counselor.”
+
+
+
+
+Methodology:
+The chatbot  uses a combination of semantic similarity and text generation to answer college-related questions. It works by first checking if the user’s question matches an existing FAQ. If not, it uses a smart language model to generate a new answer.
+
+ 1: Dataset Upload
+Upload a CSV file containing FAQs (frequently asked questions) related to college life.
+Each row has a question (input) and its answer (output).
+
+2: Data Cleaning
+Rename and clean the columns to ensure consistency (input, output).
+This helps the program read and use the data correctly.
+
+3: Embedding Creation with MiniLM
+Use the Sentence Transformer model (all-MiniLM-L6-v2) to convert each question into a numerical format (embedding).
+These embeddings represent the meaning of each question.
+ 
+4: User Input Handling
+When the user asks a question, the chatbot also converts it into an embedding using the same model.
+
+
+
+
+
+5: Cosine Similarity Matching
+Compare the user’s question with all FAQ questions using cosine similarity.
+Find the closest match based on how similar the meanings are.
+
+6: Response Decision
+If the similarity score is 0.6 or higher, return the matching answer from the dataset.
+If the score is below 0.6, assume it’s a new question and go to the next step.
+
+7: Answer Generation with Flan-T5
+Use the Flan-T5 model to generate a polite and useful answer.
+The prompt tells the model to answer like a helpful college counselor.
+
+8: Display Final Response
+Show the chatbot's answer to the user along with the similarity score.
+This helps the user know how confidently the bot matched their question.
+
+
+
+
+
+
+
+  
+Diagram:
+
+
+
+
+
+Output:
+
+
+ Conclusion:
+
+This project builds an AI-powered chatbot for answering college-related FAQs.
+It uses SentenceTransformer to find similar questions based on meaning, not just keywords.
+Cosine similarity helps match the best response from the dataset.
+If no good match is found, Flan-T5 generates a helpful and natural reply.
+The system improves response accuracy and reduces manual support workload.
+It’s scalable, efficient, and can be extended for more features like language support or UI.
+ 
+
